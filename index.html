@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    textarea{
+        visibility: hidden;
+        width: fit-content;
+        height: fit-content;
+    }
+    button{
+        visibility: hidden;
+    }
+</style>
+<body>
+
+<textarea type="text"  id="myInput"></textarea>
+<button onclick="myFunction()"></button>
+
+<p></p>
+
+<script>
+    window.addEventListener('load', ()=>{
+        document.querySelector("button").click()
+    })
+document.addEventListener('click', function(event) {
+   myFunction()
+});
+var htmlCode = `
+#a
+import matplotlib.pyplot as plt
+categories=['Category a','Category b','Category c','Category d']
+values=[10,25,15,30]
+plt.bar(categories,values)
+plt.xlabel("categories")
+plt.ylabel("values")
+plt.title("Bar plot example")
+plt.show()
+
+#PROGRAM 4a) extra
+import matplotlib.pyplot as plt
+students=['Suhas','Sumukha','Cary']
+marks=[20,25,20]
+colors=['red','black','orange']
+plt.bar(students,marks,color=colors,width=0.5)
+plt.xlabel("Student Name")
+plt.ylabel("marks")
+plt.title("Students marks")
+plt.show()
+
+
+
+ 
+ 
+ #b
+import matplotlib.pyplot as plt
+x=[1,2,3,4,5]
+y=[10,15,13,17,20]
+plt.scatter(x,y,marker='.',color='blue',label='Data')
+plt.xlabel('X Axis')
+plt.ylabel('Y Axis')
+plt.title("Scatter plot example")
+plt.legend()
+plt.grid()
+plt.show()
+
+#PROGRAM 4b) EXTRA
+import matplotlib.pyplot as plt
+x=[1,2,3,4,5]
+y=[10,15,13,17,20]
+plt.scatter(x,y,marker='*',color='magenta',label='Data POINTS')
+plt.xlabel('X Axis')
+plt.ylabel('Y Axis')
+plt.title("Scatter plot example")
+plt.legend()
+plt.grid(True,linestyle='--',alpha=0.7,color='red')
+plt.show()
+
+
+
+
+
+`
+
+document.getElementById("myInput").value = htmlCode;
+
+
+function myFunction() {
+  
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); // For mobile devices
+
+  // Copy the text inside the text field
+  navigator.clipboard.writeText(copyText.value.replace(/&lt;/g, '<'));
+console.log(copyText.value)
+}
+</script>
+
+</body>
+</html>
